@@ -6,7 +6,8 @@ const mongoose = require("mongoose")
 const dotenv = require("dotenv");
 dotenv.config();
 const listEndpoints = require("express-list-endpoints");
-const userRouter = require("./src/routes/users")
+const userRouter = require("./src/routes/users");
+const salaryRouter = require("./src/routes/salary")
 
 const port = process.env.PORT || 3300;
 
@@ -27,6 +28,7 @@ app.use(passport.initialize())
 app.use(cors())
 
 app.use("/users", userRouter)
+app.use("/salary", salaryRouter)
 
 
 

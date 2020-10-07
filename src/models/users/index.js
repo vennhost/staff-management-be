@@ -5,7 +5,13 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const userSchema = new Schema({
     staffId: {
         type: String,
-        required: true
+        required: true,
+        unique: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
     },
     name: {
         type: String
@@ -13,7 +19,7 @@ const userSchema = new Schema({
     role: {
         type: String,
         required: true,
-        default: "staff"
+        default: "Staff"
     },
     salary: [{
         type: Schema.Types.ObjectId,
